@@ -1,0 +1,14 @@
+/**
+ * Hero section styles
+ */
+
+.hero {
+	text-align: center;
+	height: 100%;
+
+	.container {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
