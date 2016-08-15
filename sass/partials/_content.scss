@@ -47,3 +47,77 @@ header {
 		}
 	}
 }
+
+/**
+ * Section generic styles
+ */
+
+.section-heading {
+	margin-right: 150px;
+	text-align: right;
+	position: relative;
+	color: $yellow;
+
+	&:after {
+		display: block;
+		content: '';
+		position: absolute;
+		height: 100%;
+		right: -25px;
+		top: -7px;
+		width: 8px;
+		background-color: $yellow;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: $section-h1-size;
+	}
+}
+
+.section-highlight {
+	color: $yellow;
+	font-size: $section-highlight-size;
+}
+
+
+/**
+ * About SLDC
+ */
+
+.about-sldc {
+	background-color: $lightgray;
+	padding: 0 20px;
+	background-clip: content-box;
+
+	.container > .row:first-child {
+		margin: 150px 0 100px;
+	}
+
+	h2 {
+		font-size: 1em;
+		color: $yellow;
+	}
+
+	ul {
+		margin-top: 20px;
+		li {
+			position: relative;
+		}
+	}
+
+	ul > li:before {
+		position: absolute;
+		content: '';
+		display: block;
+		left: -2em;
+		top: 0.6em;
+		height: 1px;
+		background-color: $yellow;
+		width: 20px;
+	}
+
+	.register-row {
+		margin-top: 50px;
+	}
+}

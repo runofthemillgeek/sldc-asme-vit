@@ -9,10 +9,17 @@ html, body {
 body {
 	font-family: $font-family;
 	font-size: $body-text-size;
+	color: $black;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $bold;
+}
+
+section {
+	h1, h2, h3, h4, h5, h6 {
+		text-transform: uppercase;
+	}
 }
 
 .btn.btn-default {
@@ -23,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: $bold;
 	text-transform: uppercase;
 	background-color: transparent;
-	padding-top: 10px;
+	padding-top: 0.5em;
 	padding-left: 20px;
 	padding-right: 20px;
 }
@@ -42,4 +49,15 @@ h1, h2, h3, h4, h5, h6 {
 .btn-default.btn:focus {
 	background-color: darken($yellow, 15%);
 	border-color: darken($yellow, 15%);
+}
+
+.btn.btn-lg {
+	font-size: 1.3em;
+	background-color: $yellow;
+	color: $white;
+}
+
+.btn.btn-lg:hover {
+	background-color: $darkgray;
+	border-color: $darkgray;
 }
