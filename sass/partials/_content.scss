@@ -22,3 +22,28 @@
 		text-transform: uppercase;
 	}
 }
+
+/**
+ * Main nav styles
+ */
+
+header {
+	padding: 0 50px;
+
+	nav {
+		height: 100px;
+		padding: 24px 0;
+		position: relative;
+
+		.logo {
+			font-weight: $bold;
+			font-size: $logo-text-size;
+		}
+
+		.hamburger {
+			position: absolute;
+			right: 0;
+			top: 24px;
+		}
+	}
+}
