@@ -5,10 +5,20 @@
 .hero {
 	text-align: center;
 	height: 100%;
+	background-color: $darkgray;
+	color: $yellow;
 
 	.container {
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
+		> .row {
+			padding-top: 40px;
+		}
+	}
+
+	h1 {
+		font-size: $hero-h1-size;
+		text-transform: uppercase;
 	}
 }

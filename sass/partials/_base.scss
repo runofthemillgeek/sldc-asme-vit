@@ -14,3 +14,32 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: $bold;
 }
+
+.btn.btn-default {
+	border: 1px solid $yellow;
+	border-radius: 4px;
+	color: $yellow;
+	font-size: 1em;
+	font-weight: $bold;
+	text-transform: uppercase;
+	background-color: transparent;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:hover,
+.btn.btn-default:active:focus {
+	background-color: $yellow;
+	color: $white;
+	border-color: $yellow;
+}
+
+.btn-default.btn:active,
+.btn-default.btn:active,
+.btn-default.btn:active:hover,
+.btn-default.btn:focus {
+	background-color: darken($yellow, 15%);
+	border-color: darken($yellow, 15%);
+}
