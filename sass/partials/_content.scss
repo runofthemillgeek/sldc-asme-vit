@@ -80,6 +80,12 @@ header {
 	font-size: $section-highlight-size;
 }
 
+.about-sldc, .about-asme, footer {
+		.container > .row:first-child {
+			margin: 150px 0 100px;
+		}
+}
+
 
 /**
  * About SLDC
@@ -89,10 +95,6 @@ header {
 	background-color: $lightgray;
 	padding: 0 20px;
 	background-clip: content-box;
-
-	.container > .row:first-child {
-		margin: 150px 0 100px;
-	}
 
 	h2 {
 		font-size: 1em;
@@ -119,5 +121,42 @@ header {
 
 	.register-row {
 		margin-top: 50px;
+	}
+}
+
+
+/**
+ * FAQ
+ */
+
+.faq {
+	background-color: $lightgray;
+	padding: 0 20px;
+	background-clip: content-box;
+	position: relative;
+
+	p {
+		text-align: center;
+		padding: 50px 0;
+		font-size: 1.3em;
+	}
+
+	dt {
+		font-weight: $bold;
+		text-transform: uppercase;
+		position: relative;
+
+		&:before {
+			content: counter(my-counter, decimal) ".";
+			position: absolute;
+			left: -2em;
+			top: 0;
+			line-style-type: decimal;
+			counter-increment: my-counter;
+		}
+	}
+
+	dd {
+		margin-bottom: 30px;
 	}
 }
