@@ -18,51 +18,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section, footer {
-	@for $i from 1 through 6 {
-		h#{$i} {
-			text-transform: uppercase;
-		}
+	h1, h2 {
+		text-transform: uppercase;
 	}
 }
 
-.btn.btn-default {
-	border: 1px solid $yellow;
-	border-radius: 4px;
+.cs-button {
+	border: 2px solid $yellow;
 	color: $yellow;
 	font-size: 1em;
 	font-weight: $bold;
 	text-transform: uppercase;
 	background-color: transparent;
-	padding-top: 0.5em;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 0.5em 1em 0.3em;
+	transition: 0.15s transform ease-out;
 }
 
-.btn.btn-default:hover,
-.btn.btn-default:hover,
-.btn.btn-default:active:focus {
-	background-color: $yellow;
-	color: $white;
-	border-color: $yellow;
+.cs-button-lg {
+	font-size: 1.4em;
 }
 
-.btn-default.btn:active,
-.btn-default.btn:active,
-.btn-default.btn:active:hover,
-.btn-default.btn:focus {
-	background-color: darken($yellow, 15%);
-	border-color: darken($yellow, 15%);
+.cs-button:active {
+	transform: scale(0.85);
 }
 
-.btn.btn-lg {
-	font-size: 1.3em;
+.cs-button:focus {
+	outline: none;
+}
+
+.cs-button:hover,
+.cs-button:focus:active {
 	background-color: $yellow;
 	color: $white;
 }
 
-.btn.btn-lg:hover {
-	background-color: $darkgray;
-	border-color: $darkgray;
+.cs-button-gray:hover,
+.cs-button-gray:focus:active {
+	color: $darkgray;
+}
+
+.cs-button-lgray:hover,
+.cs-button-lgray:focus:active {
+	color: $lightgray;
 }
 
 %gray-box {
