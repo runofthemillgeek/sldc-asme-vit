@@ -101,20 +101,6 @@ header {
 
 	ul {
 		margin-top: 20px;
-		li {
-			position: relative;
-		}
-	}
-
-	ul > li:before {
-		position: absolute;
-		content: '';
-		display: block;
-		left: -2em;
-		top: 0.6em;
-		height: 1px;
-		background-color: $yellow;
-		width: 20px;
 	}
 
 	.register-row {
@@ -126,7 +112,22 @@ header {
  * Competitions
  */
 
-
+.competitions {
+	$darkerlgray: darken($lightgray, 10%);
+	.panel {
+		border: 1px solid $darkerlgray;
+		box-shadow: 0 2px 1px transparentize($darkerlgray, 0.3);
+	}
+	.panel-heading {
+		button {
+			float: right;
+		}
+		h3 {
+			display: inline-block;
+			font-size: 1.6em;
+		}
+	}
+}
 
 /**
  * About ASME
