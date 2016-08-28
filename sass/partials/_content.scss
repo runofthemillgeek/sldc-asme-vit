@@ -80,7 +80,7 @@ header {
 	font-size: $section-highlight-size;
 }
 
-.about-sldc, .about-asme, footer {
+.about-sldc, .about-asme, footer, .competitions {
 		.container > .row:first-child {
 			margin: 150px 0 100px;
 		}
@@ -92,9 +92,7 @@ header {
  */
 
 .about-sldc {
-	background-color: $lightgray;
-	padding: 0 20px;
-	background-clip: content-box;
+	@extend %gray-box;
 
 	h2 {
 		font-size: 1em;
@@ -124,15 +122,20 @@ header {
 	}
 }
 
+/**
+ * About ASME
+ */
+
+.about-asme {
+	@extend %gray-box;
+}
+
 
 /**
  * FAQ
  */
 
 .faq {
-	background-color: $lightgray;
-	padding: 0 20px;
-	background-clip: content-box;
 	position: relative;
 
 	p {

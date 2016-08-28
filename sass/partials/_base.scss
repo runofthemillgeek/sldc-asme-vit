@@ -64,3 +64,9 @@ section, footer {
 	background-color: $darkgray;
 	border-color: $darkgray;
 }
+
+%gray-box {
+	background-color: $lightgray;
+	padding: 0 20px;
+	background-clip: content-box;
+}
