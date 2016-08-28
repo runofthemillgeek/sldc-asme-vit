@@ -28,7 +28,10 @@ gulp.task('js', function() {
 			.pipe(gulp.dest('js'));
 });
 
-gulp.task('js-watch', ['js'], bs.reload);
+gulp.task('js-watch', ['js'], function(done) {
+	bs.reload();
+	done();
+});
 
 gulp.task('sass', function() {
 	gulp.src(sassSrc)
