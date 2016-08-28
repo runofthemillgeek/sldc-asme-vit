@@ -29,6 +29,11 @@
 
 header {
 	padding: 0 50px;
+	background-color: $white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 
 	nav {
 		height: 100px;
@@ -38,13 +43,33 @@ header {
 		.logo {
 			font-weight: $bold;
 			font-size: $logo-text-size;
+			color: $yellow;
 		}
 
 		.hamburger {
 			position: absolute;
 			right: 0;
-			top: 24px;
+			top: 40px;
+			display: inline-block;
+			background-color: transparent;
+			border: none;
+			width: 30px;
 		}
+
+		.hamburger span {
+			height: 2px;
+			background-color: $yellow;
+			margin-top: 5px;
+			display: block;
+		}
+	}
+
+	&.cs-fixed-top {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 100;
 	}
 }
 
@@ -93,6 +118,7 @@ header {
 
 .about-sldc {
 	@extend %gray-box;
+	padding-top: 100px;
 
 	h2 {
 		font-size: 1em;

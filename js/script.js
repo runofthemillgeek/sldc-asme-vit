@@ -2,15 +2,12 @@ $(function() {
 	var app = {
 		$faqBtn: $("#openFaq"),
 		$faqDetails: $(".faq-det"),
-
+		$mainNav: $("main header:first-child"),
 
 		init: function() {
 			this.toggleFaq();
 			this.registerHandlers();
-		},
-
-		toggleFaq: function() {
-			this.$faqDetails.slideToggle();
+			this.toggleNavFixed();
 		},
 
 		registerHandlers: function() {
@@ -19,6 +16,23 @@ $(function() {
 				e.preventDefault();
 				self.toggleFaq();
 			});
+
+			$(window).scroll(function(e) {
+				self.toggleNavFixed();
+			});
+		},
+
+		toggleFaq: function() {
+			this.$faqDetails.slideToggle();
+		},
+
+		toggleNavFixed: function() {
+			var self = this;
+			if($(window).scrollTop() >= $("main").offset().top) {
+				if(!self.$mainNav.hasClass("cs-fixed-top")) self.$mainNav.addClass("cs-fixed-top");
+			} else {
+				if(self.$mainNav.hasClass("cs-fixed-top")) self.$mainNav.removeClass("cs-fixed-top");
+			}
 		}
 	};
 
