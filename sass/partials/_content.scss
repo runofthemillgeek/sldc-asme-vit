@@ -34,6 +34,7 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
+	transition: 0.15s transform ease-in;
 
 	nav {
 		height: 100px;
@@ -70,6 +71,10 @@ header {
 		top: 0;
 		left: 0;
 		z-index: 100;
+	}
+
+	&.cs-nav-slideup {
+		transform: translateY(-100%);
 	}
 }
 
