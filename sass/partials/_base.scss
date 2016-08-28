@@ -27,6 +27,13 @@ section, footer {
 	}
 }
 
+a {
+	color: $yellow;
+	&:hover, &:focus {
+		color: darken($yellow, 10%);
+	}
+}
+
 .cs-button {
 	border: 2px solid $yellow;
 	color: $yellow;
