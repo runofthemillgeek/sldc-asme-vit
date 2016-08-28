@@ -23,6 +23,14 @@ $(function() {
 				self.navAutoHide(self.cachedScrollVal);
 				self.cachedScrollVal = $(window).scrollTop();
 			});
+
+			$(".to-top").click(function() {
+				console.log("Got clicked");
+				$("body").animate({
+					scrollTop: 0
+				}, 500);
+			});
+
 		},
 
 		toggleFaq: function() {
