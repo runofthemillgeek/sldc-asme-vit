@@ -1,5 +1,8 @@
 html {
 	font-size: $base-text-size;
+	@media (max-width: $break-lg) {
+		font-size: $base-text-size - 4px;
+	}
 }
 
 html, body {
@@ -84,6 +87,10 @@ a {
 ul {
 	li {
 		position: relative;
+
+		@media (max-width: $break-sm) {
+			padding-left: 2em;
+		}
 	}
 }
 
@@ -96,6 +103,10 @@ ul > li:before {
 	height: 1px;
 	background-color: $yellow;
 	width: 20px;
+
+	@media (max-width: $break-sm) {
+		left: 0;
+	}
 }
 
 .overlay {
