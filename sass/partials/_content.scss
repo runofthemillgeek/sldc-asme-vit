@@ -150,6 +150,7 @@ header {
 
 	.panel {
 		background-color: $darkgray;
+		color: lighten($darkgray, 60%);
 		border: none;
 		border-radius: 5px;
 		box-shadow: 0 3px 2px rgba($darkgray, 0.5);
@@ -171,7 +172,6 @@ header {
 	}
 
 	.panel-body {
-		color: lighten($darkgray, 60%);
 		h3 {
 			color: $yellow;
 		}
@@ -206,11 +206,26 @@ header {
 			color: gold;
 		}
 
-		.second-prize:color {
+		.second-prize:before {
 			color: silver;
 		}
 	}
 
+}
+
+.competitions .slider-wrapper {
+	position: relative;
+	height: 700px;
+
+	.panel {
+		position: absolute;
+		height: 600px;
+	}
+
+	.panel-body {
+		height: 300px;
+		overflow-y: scroll;
+	}
 }
 
 /**
