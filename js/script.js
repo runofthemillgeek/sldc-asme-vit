@@ -6,8 +6,13 @@ $(function() {
 		$sideNav: $(".side-nav"),
 		$mainHamburger: $(".hero .hamburger"),
 		cachedScrollVal: 0,
+		$prevButton: $(".slide-nav .prev"),
+		$nextButton: $(".slide-nav .next"),
+		$slides: $(".slider-wrapper .panel"),
+		currentSlide: 0,
 
 		init: function() {
+			this.totalSlides = this.$slides.length;
 			this.toggleFaq();
 			this.registerHandlers();
 			this.toggleNavFixed();
@@ -44,6 +49,10 @@ $(function() {
 					$(e.target).closest(self.$sideNav).length === 0) {
 					self.closeSideNav();
 				}
+			});
+
+			this.$nextButton.click(function(e) {
+				self.nextSlide();
 			});
 
 		},
@@ -94,6 +103,23 @@ $(function() {
 			this.$mainHamburger.css({
 				position: "absolute"
 			});
+		},
+
+		nextSlide: function() {
+			var currIndex = this.currentSlide;
+			var curr = this.$slides.eq(currIndex);
+
+			if(currIndex + 1 < this.totalSlides) {
+				curr.addClass("cs-left");
+
+				curr.one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function() {
+					curr.removeClass("cs-current");
+				});
+
+				var next = this.$slides.eq(currIndex + 1);
+				next.addClass("cs-current");
+				this.currentSlide++;
+			}
 		}
 	};
 

@@ -236,11 +236,12 @@ header {
 	}
 
 	.panel.cs-current {
-		animation: cs-slide-current 1s ease-out forwards;
+		animation: cs-slide-current 1s .75s ease-out forwards;
+		z-index: 50;
 	}
 
-	.panel.cs-left {
-		animation: cs-slide-left 1s ease-out forwards;
+	.panel.cs-current.cs-left {
+		animation: cs-slide-left 1s ease-in forwards;
 	}
 
 	.slide-nav {
