@@ -242,6 +242,13 @@ header {
 	.panel.cs-left {
 		animation: cs-slide-left 1s ease-out forwards;
 	}
+
+	.slide-nav {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
 
 @keyframes cs-slide-left {
