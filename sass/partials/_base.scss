@@ -11,6 +11,8 @@ body {
 	font-size: $body-text-size;
 	color: $black;
 	counter-reset: my-counter;
+	overflow-x: hidden;
+	position: relative;
 }
 
 main {
@@ -94,4 +96,31 @@ ul > li:before {
 	height: 1px;
 	background-color: $yellow;
 	width: 20px;
+}
+
+.overlay {
+	position: fixed;
+	background-color: transparentize($black, 0.4);
+	min-height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 150;
+}
+
+.hamburger {
+	position: absolute;
+	right: 0;
+	top: 40px;
+	display: inline-block;
+	background-color: transparent;
+	border: none;
+	width: 30px;
+}
+
+.hamburger span {
+	height: 2px;
+	background-color: $yellow;
+	margin-top: 5px;
+	display: block;
 }

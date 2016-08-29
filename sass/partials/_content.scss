@@ -7,6 +7,7 @@
 	height: 100%;
 	background-color: $darkgray;
 	color: $yellow;
+	position: relative;
 
 	.container {
 		position: relative;
@@ -20,6 +21,13 @@
 	h1 {
 		font-size: $hero-h1-size;
 		text-transform: uppercase;
+	}
+
+	.hamburger {
+		position: absolute;
+		right: 40px;
+		top: 40px;
+		z-index: 400;
 	}
 }
 
@@ -47,22 +55,6 @@ header {
 			color: $yellow;
 		}
 
-		.hamburger {
-			position: absolute;
-			right: 0;
-			top: 40px;
-			display: inline-block;
-			background-color: transparent;
-			border: none;
-			width: 30px;
-		}
-
-		.hamburger span {
-			height: 2px;
-			background-color: $yellow;
-			margin-top: 5px;
-			display: block;
-		}
 	}
 
 	&.cs-fixed-top {

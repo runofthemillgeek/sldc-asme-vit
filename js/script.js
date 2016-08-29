@@ -3,12 +3,16 @@ $(function() {
 		$faqBtn: $("#openFaq"),
 		$faqDetails: $(".faq-det"),
 		$mainNav: $("main header:first-child"),
+		$sideNav: $(".side-nav"),
+		$mainHamburger: $(".hero .hamburger"),
 		cachedScrollVal: 0,
 
 		init: function() {
 			this.toggleFaq();
 			this.registerHandlers();
 			this.toggleNavFixed();
+			this.toggleSideNav();
+			$('<div class="overlay hidden"></div>').appendTo("body");
 		},
 
 		registerHandlers: function() {
@@ -25,10 +29,13 @@ $(function() {
 			});
 
 			$(".to-top").click(function() {
-				console.log("Got clicked");
 				$("body").animate({
 					scrollTop: 0
 				}, 500);
+			});
+
+			$(".hamburger").click(function() {
+				self.toggleSideNav();
 			});
 
 		},
@@ -56,6 +63,20 @@ $(function() {
 			}
 			else {
 				this.$mainNav.removeClass("cs-nav-slideup");
+			}
+		},
+
+		toggleSideNav: function() {
+			$(".overlay").toggleClass("hidden");
+			this.$sideNav.toggleClass("cs-snav-closed");
+			if(this.$sideNav.hasClass("cs-snav-closed")) {
+				this.$mainHamburger.css({
+					position: "absolute"
+				});
+			} else {
+				this.$mainHamburger.css({
+					position: "fixed"
+				});
 			}
 		}
 	};

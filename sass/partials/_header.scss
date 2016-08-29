@@ -1,5 +1,5 @@
 .side-nav {
-	position: absolute;
+	position: fixed;
 	z-index: 200;
 	background-color: $white;
 	top: 0;
@@ -8,6 +8,7 @@
 	padding: 150px 0 150px 0;
 	width: 300px;
 	color: $yellow;
+	transition: 0.15s transform ease-out;
 
 	.down {
 		position: absolute;
@@ -53,5 +54,9 @@
 			background-color: $yellow;
 			color: $white;
 		}
+	}
+
+	&.cs-snav-closed {
+		transform: translateX(100%);
 	}
 }
