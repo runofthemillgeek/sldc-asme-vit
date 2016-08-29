@@ -38,6 +38,14 @@ $(function() {
 				self.toggleSideNav();
 			});
 
+			$(document).click(function(e) {
+				console.log(e.target);
+				if($(e.target).closest($(".hamburger")).length === 0 &&
+					$(e.target).closest(self.$sideNav).length === 0) {
+					self.closeSideNav();
+				}
+			});
+
 		},
 
 		toggleFaq: function() {
@@ -78,6 +86,14 @@ $(function() {
 					position: "fixed"
 				});
 			}
+		},
+
+		closeSideNav: function() {
+			$(".overlay").addClass("hidden");
+			this.$sideNav.addClass("cs-snav-closed");
+			this.$mainHamburger.css({
+				position: "absolute"
+			});
 		}
 	};
 
