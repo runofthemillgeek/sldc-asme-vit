@@ -213,20 +213,63 @@ header {
 
 }
 
+%slide-default-state {
+	transform: translateX(100%) scale(0.7);
+	opacity: 0;
+}
+
 .competitions .slider-wrapper {
+
 	position: relative;
 	height: 700px;
+	perspective: 1000px;
 
 	.panel {
 		position: absolute;
 		height: 600px;
+		@extend %slide-default-state;
 	}
 
 	.panel-body {
 		height: 300px;
 		overflow-y: scroll;
 	}
+
+	.panel.cs-current {
+		animation: cs-slide-current 1s ease-out forwards;
+	}
+
+	.panel.cs-left {
+		animation: cs-slide-left 1s ease-out forwards;
+	}
 }
+
+@keyframes cs-slide-left {
+	0% {
+		transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+	30% {
+		transform: scale(0.7) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.7) translateX(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes cs-slide-current {
+	70% {
+		transform: scale(0.7) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+}
+
 
 /**
  * About ASME
