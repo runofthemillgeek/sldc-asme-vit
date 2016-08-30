@@ -55,6 +55,10 @@ $(function() {
 				self.nextSlide();
 			});
 
+			this.$prevButton.click(function(e) {
+				self.prevSlide();
+			});
+
 		},
 
 		toggleFaq: function() {
@@ -112,13 +116,40 @@ $(function() {
 			if(currIndex + 1 < this.totalSlides) {
 				curr.addClass("cs-left");
 
-				curr.one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function() {
+				curr.one("animationend", function() {
 					curr.removeClass("cs-current");
 				});
 
 				var next = this.$slides.eq(currIndex + 1);
 				next.addClass("cs-current");
 				this.currentSlide++;
+			}
+		},
+
+		prevSlide: function() {
+			var currIndex = this.currentSlide;
+			var curr = this.$slides.eq(currIndex);
+
+			if(currIndex - 1 >= 0) {
+				curr.removeClass("cs-current");
+
+				var prev = this.$slides.eq(currIndex - 1);
+
+				prev.css({
+					transform: "translateX(-100%) scale(0.7)"
+				});
+
+				prev.removeClass("cs-left");
+				prev.addClass("cs-current");
+
+				prev.one("animationend", function() {
+					prev.css({
+						transform: ""
+					});
+				});
+
+				this.currentSlide--;
+
 			}
 		}
 	};

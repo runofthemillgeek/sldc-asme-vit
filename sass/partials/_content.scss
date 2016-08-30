@@ -228,6 +228,7 @@ header {
 		position: absolute;
 		height: 600px;
 		@extend %slide-default-state;
+		animation: cs-slide-right 1s ease-in forwards;
 	}
 
 	.panel-body {
@@ -235,12 +236,13 @@ header {
 		overflow-y: scroll;
 	}
 
+
 	.panel.cs-current {
 		animation: cs-slide-current 1s .75s ease-out forwards;
 		z-index: 50;
 	}
 
-	.panel.cs-current.cs-left {
+	.panel.cs-left {
 		animation: cs-slide-left 1s ease-in forwards;
 	}
 
@@ -263,6 +265,21 @@ header {
 	}
 	100% {
 		transform: scale(0.7) translateX(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes cs-slide-right {
+	0% {
+		transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+	30% {
+		transform: scale(0.7) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.7) translateX(100%);
 		opacity: 0;
 	}
 }
