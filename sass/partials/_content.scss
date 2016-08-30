@@ -228,7 +228,7 @@ header {
 		position: absolute;
 		height: 600px;
 		@extend %slide-default-state;
-		animation: cs-slide-right 1s ease-in forwards;
+		animation: cs-slide-right .75s ease-in forwards;
 	}
 
 	.panel-body {
@@ -238,19 +238,41 @@ header {
 
 
 	.panel.cs-current {
-		animation: cs-slide-current 1s .75s ease-out forwards;
+		animation: cs-slide-current .75s .75s ease-out forwards;
 		z-index: 50;
 	}
 
 	.panel.cs-left {
-		animation: cs-slide-left 1s ease-in forwards;
+		animation: cs-slide-left .75s ease-in forwards;
 	}
 
 	.slide-nav {
 		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
+		bottom: 50%;
+		left: 0;
+		right: 0;
+		z-index: 60;
+
+		button {
+			background-color: transparent;
+			border: none;
+			position: absolute;
+			bottom: 0;
+			font-size: 3em;
+			color: lighten($darkgray, 70%);
+		}
+
+		button:focus {
+			outline: none;
+		}
+
+		.next {
+			right: -2em;
+		}
+
+		.prev {
+			left: -2em;
+		}
 	}
 }
 
