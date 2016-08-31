@@ -58,6 +58,14 @@ $(function() {
 				self.prevSlide();
 			});
 
+			this.$sideNav.find(".nav-contents li:not(:last-child) a").click(function(e) {
+				e.preventDefault();
+				var id = e.target.href.split('#')[1];
+				console.log(id);
+				if($("#" + id).length !== 0)
+					self.scrollToId(id);
+			});
+
 		},
 
 		toggleFaq: function() {
@@ -150,6 +158,17 @@ $(function() {
 				this.currentSlide--;
 
 			}
+		},
+
+		scrollToId: function(id) {
+			var elem = $("#" + id);
+			console.log(elem);
+			var top = elem.offset().top;
+			console.log(top);
+			$("body").animate({
+				scrollTop: top
+			}, 500);
+			this.toggleSideNav();
 		}
 	};
 
