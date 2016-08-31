@@ -139,6 +139,11 @@ header {
 	background-color: $yellow;
 	color: lighten($darkgray, 5%);
 
+	::selection {
+		background-color: $white;
+		color: $darkgray;
+	}
+
 	.section-heading h1,
 	.section-highlight {
 		color: $darkgray;

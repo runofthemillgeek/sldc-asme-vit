@@ -44,7 +44,6 @@ $(function() {
 			});
 
 			$(document).click(function(e) {
-				console.log(e.target);
 				if($(e.target).closest($(".hamburger")).length === 0 &&
 					$(e.target).closest(self.$sideNav).length === 0) {
 					self.closeSideNav();
