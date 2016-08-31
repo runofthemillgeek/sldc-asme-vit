@@ -153,6 +153,7 @@ header {
 .competitions {
 	background-color: $yellow;
 	color: lighten($darkgray, 5%);
+	overflow-x: hidden;
 
 	::selection {
 		background-color: $white;
