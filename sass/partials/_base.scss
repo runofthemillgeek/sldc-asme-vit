@@ -1,8 +1,5 @@
 html {
 	font-size: $base-text-size;
-	@media (max-width: $break-lg) {
-		font-size: $base-text-size - 4px;
-	}
 }
 
 html, body {
