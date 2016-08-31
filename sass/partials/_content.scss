@@ -186,28 +186,52 @@ header {
 	}
 
 	.trophies {
-		font-size: 1.6em;
+		font-size: 2em;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		color: lighten($darkgray, 10%);
 
 		div {
-			padding-left: 0.3em;
+			padding: 0.3em 0 0.2em 1em;
+			position: relative;
+			overflow: hidden;
+			z-index: 10;
 		}
 
 		div:before {
 			font-family: 'fontawesome';
 			content: "\f091";
-			display: inline-block;
+			display: block;
 			padding-right: 0.3em;
-			font-size: 1.5em;
-			position: relative;
-			top: 0.1em;
+			font-size: 2.5em;
+			z-index: -1;
+			position: absolute;
+			top: -0.15em;
+			right: -0.2em;
+			transform: rotate(30deg);
+		}
+
+		div:last-child {
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		.first-prize {
+			background-color: gold;
 		}
 
 		.first-prize:before {
-			color: gold;
+			color: darken(gold, 20%);
+		}
+
+		.second-prize {
+			background-color: silver;
 		}
 
 		.second-prize:before {
-			color: silver;
+			color: darken(silver, 20%);
 		}
 	}
 
@@ -221,8 +245,9 @@ header {
 .competitions .slider-wrapper {
 
 	position: relative;
-	height: 700px;
+	height: 600px;
 	perspective: 1000px;
+	margin-bottom: 100px;
 
 	.panel {
 		position: absolute;
