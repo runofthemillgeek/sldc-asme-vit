@@ -95,6 +95,7 @@ $(function() {
 		},
 
 		toggleSideNav: function() {
+			$(".hamburger").toggleClass("hb-close");
 			$(".overlay").toggleClass("hidden");
 			this.$sideNav.toggleClass("cs-snav-closed");
 			if(this.$sideNav.hasClass("cs-snav-closed")) {
@@ -109,6 +110,7 @@ $(function() {
 		},
 
 		closeSideNav: function() {
+			$(".hamburger").removeClass("hb-close");
 			$(".overlay").addClass("hidden");
 			this.$sideNav.addClass("cs-snav-closed");
 			this.$mainHamburger.css({

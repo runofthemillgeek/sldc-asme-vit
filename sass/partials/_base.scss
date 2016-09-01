@@ -136,4 +136,22 @@ ul > li:before {
 	background-color: $yellow;
 	margin-top: 5px;
 	display: block;
+	transform-origin: top 50%;
+	transition: 0.5s transform ease-out, 0.5s opacity ease-out;
+}
+
+.hamburger.hb-close span:first-child{
+	transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.hb-close span:nth-child(2){
+	opacity: 0;
+}
+
+.hamburger.hb-close span:last-child{
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+.hamburger:focus {
+	outline: none;
 }
