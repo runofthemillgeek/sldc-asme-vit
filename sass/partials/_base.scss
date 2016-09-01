@@ -155,3 +155,15 @@ ul > li:before {
 .hamburger:focus {
 	outline: none;
 }
+
+::-webkit-scrollbar{
+    width: 0.6em;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darken($darkgray, 5%);
+}
