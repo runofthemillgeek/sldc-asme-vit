@@ -4,10 +4,11 @@ var gulp = require('gulp'),
 		cssmin = require('gulp-cssmin'),
 		rename = require('gulp-rename'),
 		sass = require('gulp-sass'),
-		sourcemaps = require('gulp-sourcemaps');
+		sourcemaps = require('gulp-sourcemaps'),
+		ap = require('gulp-autoprefixer');
 
 var jsSrc = ['js/script.js'],
-		cssSrc = ['css/styles.css'],
+		cssSrc = ['css/main.css'],
 		sassSrc = ['sass/**/*.scss'];
 
 gulp.task('css', function() {
@@ -28,12 +29,16 @@ gulp.task('js', function() {
 			.pipe(gulp.dest('js'));
 });
 
-gulp.task('js-watch', ['js'], bs.reload);
+gulp.task('js-watch', ['js'], function(done) {
+	bs.reload();
+	done();
+});
 
 gulp.task('sass', function() {
 	gulp.src(sassSrc)
 			.pipe(sourcemaps.init())
 			.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+			.pipe(ap())
 			.pipe(sourcemaps.write())
 			.pipe(gulp.dest('css'))
 			.pipe(bs.stream());

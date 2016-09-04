@@ -1,0 +1,438 @@
+/**
+ * Hero section styles
+ */
+
+.hero {
+	text-align: center;
+	height: 100%;
+	background-color: $darkgray;
+	color: $yellow;
+	position: relative;
+
+	canvas {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		z-index: 50;
+		background-color: black;
+	}
+
+	.container {
+		z-index: 100;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		> .row {
+			padding-top: 40px;
+		}
+
+	}
+
+	h1 {
+		font-size: $hero-h1-size;
+		text-transform: uppercase;
+
+		@media (max-width: 600px) {
+			font-size: $hero-h1-size - 1em;
+		}
+	}
+
+	.hamburger {
+		position: absolute;
+		right: 50px;
+		top: 40px;
+		z-index: 400;
+	}
+}
+
+/**
+ * Main nav styles
+ */
+
+header {
+	padding: 0 50px;
+	background-color: $white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition: 0.15s transform ease-in;
+
+	nav {
+		height: 100px;
+		padding: 24px 0;
+		position: relative;
+
+		.logo {
+			font-weight: $bold;
+			font-size: $logo-text-size;
+			color: $yellow;
+			position: relative;
+			top: 10px;
+		}
+
+	}
+
+	&.cs-fixed-top {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 100;
+	}
+
+	&.cs-nav-slideup {
+		transform: translateY(-100%);
+	}
+}
+
+/**
+ * Section generic styles
+ */
+
+.section-heading {
+	margin-right: 150px;
+	text-align: right;
+	position: relative;
+	color: $yellow;
+
+	@media (min-width: $break-med) {
+		&:after {
+			display: block;
+			content: '';
+			position: absolute;
+			height: 100%;
+			right: -25px;
+			top: 0px;
+			width: 8px;
+			background-color: $yellow;
+		}
+	}
+
+	@media (max-width: $break-med) {
+		text-align: left;
+		margin-right: 0;
+
+		& br {
+			display: none;
+		}
+	}
+
+	h1 {
+		margin: 0;
+		font-size: $section-h1-size;
+	}
+}
+
+.section-highlight {
+	color: $yellow;
+	font-size: $section-highlight-size;
+}
+
+.about-sldc, .about-asme, footer, .competitions {
+		.container > .row:first-child {
+			margin: 150px 0 100px;
+
+			@media (max-width: $break-med) {
+				margin: 100px 0 50px;
+			}
+		}
+}
+
+
+/**
+ * About SLDC
+ */
+
+.about-sldc {
+	@extend %gray-box;
+	padding-top: 100px;
+
+	h2 {
+		font-size: 1em;
+		color: $yellow;
+	}
+
+	ul {
+		margin-top: 20px;
+	}
+
+	.register-row {
+		margin-top: 50px;
+	}
+}
+
+/**
+ * Competitions
+ */
+
+.competitions {
+	background-color: $yellow;
+	color: lighten($darkgray, 5%);
+	overflow-x: hidden;
+
+	::selection {
+		background-color: $white;
+		color: $darkgray;
+	}
+
+	.section-heading h1,
+	.section-highlight {
+		color: $darkgray;
+	}
+
+	.section-heading:after {
+		background-color: $darkgray;
+	}
+
+	.panel {
+		background-color: $darkgray;
+		color: lighten($darkgray, 60%);
+		border: none;
+		border-radius: 5px;
+		box-shadow: 0 3px 2px rgba($darkgray, 0.5);
+		padding: 30px;
+	}
+
+	.panel-heading {
+		color: $yellow;
+
+		button {
+			float: right;
+
+			@media (max-width: $break-sm) {
+				display: block;
+				float: none;
+			}
+		}
+
+		h2 {
+			display: inline-block;
+			font-size: 1.6em;
+			margin-top: 0.40em;
+
+			@media (min-width: $break-sm) {
+				width: 75%;
+			}
+		}
+	}
+
+	.panel-body {
+		h3 {
+			color: $yellow;
+		}
+	}
+
+	.key-points li {
+		padding-left: 2em;
+
+		&:before {
+			left: 0;
+		}
+	}
+
+	.trophies {
+		font-size: 2em;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		color: lighten($darkgray, 10%);
+
+		div {
+			padding: 0.3em 0 0.2em 1em;
+			position: relative;
+			overflow: hidden;
+			z-index: 10;
+		}
+
+		div:before {
+			font-family: 'fontawesome';
+			content: "\f091";
+			display: block;
+			padding-right: 0.3em;
+			font-size: 2.5em;
+			z-index: -1;
+			position: absolute;
+			top: -0.15em;
+			right: -0.2em;
+			transform: rotate(30deg);
+		}
+
+		div:last-child {
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		.first-prize {
+			background-color: gold;
+		}
+
+		.first-prize:before {
+			color: darken(gold, 20%);
+		}
+
+		.second-prize {
+			background-color: silver;
+		}
+
+		.second-prize:before {
+			color: darken(silver, 20%);
+		}
+	}
+
+}
+
+%slide-default-state {
+	transform: translateX(100%) scale(0.7);
+	opacity: 0;
+}
+
+.competitions .slider-wrapper {
+
+	position: relative;
+	height: 600px;
+	perspective: 1000px;
+	margin-bottom: 100px;
+
+	.panel {
+		position: absolute;
+		height: 600px;
+		@extend %slide-default-state;
+		animation: cs-slide-right .75s ease-in forwards;
+	}
+
+	.panel-body {
+		height: 300px;
+		overflow-y: scroll;
+	}
+
+
+	.panel.cs-current {
+		animation: cs-slide-current .75s .75s ease-out forwards;
+		z-index: 50;
+	}
+
+	.panel.cs-left {
+		animation: cs-slide-left .75s ease-in forwards;
+	}
+
+	.slide-nav {
+		position: absolute;
+		bottom: -75px;
+		left: 50%;
+
+		@media (min-width: $break-sm) {
+			bottom: 50%;
+			left: 0;
+			right: 0;
+			z-index: 60;
+		}
+
+		button {
+			background-color: transparent;
+			border: none;
+			position: absolute;
+			bottom: 0;
+			font-size: 3em;
+			color: lighten($darkgray, 70%);
+		}
+
+		button:focus {
+			outline: none;
+		}
+
+		.next {
+			right: -2em;
+		}
+
+		.prev {
+			left: -2em;
+		}
+	}
+}
+
+@keyframes cs-slide-left {
+	0% {
+		transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+	30% {
+		transform: scale(0.7) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.7) translateX(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes cs-slide-right {
+	0% {
+		transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+	30% {
+		transform: scale(0.7) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.7) translateX(100%);
+		opacity: 0;
+	}
+}
+
+@keyframes cs-slide-current {
+	70% {
+		transform: scale(0.7) translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1) translateX(0);
+		opacity: 1;
+	}
+}
+
+
+/**
+ * About ASME
+ */
+
+.about-asme {
+	@extend %gray-box;
+}
+
+
+/**
+ * FAQ
+ */
+
+.faq {
+	position: relative;
+
+	p {
+		text-align: center;
+		padding: 50px 0;
+		font-size: 1.3em;
+	}
+
+	dt {
+		font-weight: $bold;
+		text-transform: uppercase;
+		position: relative;
+
+		&:before {
+			content: counter(my-counter, decimal) ".";
+			position: absolute;
+			left: -2em;
+			top: 0;
+			line-style-type: decimal;
+			counter-increment: my-counter;
+		}
+	}
+
+	dd {
+		margin-bottom: 30px;
+	}
+}

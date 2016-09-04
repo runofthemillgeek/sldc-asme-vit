@@ -1,0 +1,169 @@
+html {
+	font-size: $base-text-size;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: $font-family;
+	font-size: $body-text-size;
+	color: $black;
+	counter-reset: my-counter;
+	overflow-x: hidden;
+	position: relative;
+}
+
+main {
+	position: relative;
+}
+
+::selection {
+	background-color: transparentize($yellow, 0.5);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $bold;
+}
+
+section, footer {
+	h1, h2 {
+		text-transform: uppercase;
+	}
+}
+
+a {
+	color: $yellow;
+	&:hover, &:focus {
+		color: darken($yellow, 10%);
+	}
+}
+
+.cs-button {
+	border: 2px solid $yellow;
+	color: $yellow;
+	font-size: 1em;
+	font-weight: $bold;
+	text-transform: uppercase;
+	background-color: transparent;
+	padding: 0.5em 1em 0.3em;
+	transition: 0.15s transform ease-out;
+}
+
+.cs-button-lg {
+	font-size: 1.4em;
+}
+
+.cs-button:active {
+	transform: scale(0.85);
+}
+
+.cs-button:focus {
+	outline: none;
+}
+
+.cs-button:hover,
+.cs-button:focus:active {
+	background-color: $yellow;
+	color: $white;
+}
+
+.cs-button-gray:hover,
+.cs-button-gray:focus:active {
+	color: $darkgray;
+}
+
+.cs-button-lgray:hover,
+.cs-button-lgray:focus:active {
+	color: $lightgray;
+}
+
+%gray-box {
+	background-color: $lightgray;
+	padding: 0 20px;
+	background-clip: content-box;
+}
+
+ul {
+	li {
+		position: relative;
+
+		@media (max-width: $break-sm) {
+			padding-left: 2em;
+		}
+	}
+}
+
+ul > li:before {
+	position: absolute;
+	content: '';
+	display: block;
+	left: -2em;
+	top: 0.6em;
+	height: 1px;
+	background-color: $yellow;
+	width: 20px;
+
+	@media (max-width: $break-sm) {
+		left: 0;
+	}
+}
+
+.overlay {
+	position: fixed;
+	background-color: transparentize($black, 0.4);
+	min-height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 150;
+}
+
+.hamburger {
+	position: absolute;
+	right: 0;
+	top: 40px;
+	display: inline-block;
+	background-color: transparent;
+	border: none;
+	width: 20px;
+	padding: 0;
+}
+
+.hamburger span {
+	height: 2px;
+	background-color: $yellow;
+	margin-top: 5px;
+	display: block;
+	transform-origin: top 50%;
+	transition: 0.5s transform ease-out, 0.5s opacity ease-out;
+}
+
+.hamburger.hb-close span:first-child{
+	transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.hb-close span:nth-child(2){
+	opacity: 0;
+}
+
+.hamburger.hb-close span:last-child{
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+.hamburger:focus {
+	outline: none;
+}
+
+::-webkit-scrollbar{
+    width: 0.6em;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darken($darkgray, 5%);
+}
