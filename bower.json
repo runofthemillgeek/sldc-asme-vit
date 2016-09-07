@@ -1,0 +1,15 @@
+{
+  "name": "sldc-vit",
+  "description": "SLDC '16 website.",
+  "main": "index.html",
+  "authors": [
+    "Sangeeth Sudheer <sangeethmanayil@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sangeeth96/sldc-asme-vit",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}
