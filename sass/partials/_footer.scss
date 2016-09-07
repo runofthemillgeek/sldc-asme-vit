@@ -34,4 +34,36 @@ footer {
 			padding-left: 20px;
 		}
 	}
+
+	.form-sub {
+		margin-top: 20px;
+	}
+}
+
+footer .form-sub {
+	input {
+		margin-top: 10px;
+	}
+
+	input[type="text"],
+	input[type="email"] {
+		background-color: $darkgray;
+		border: 1px solid $yellow;
+		border-radius: 3px;
+		font-size: 1.3em;
+		min-width: 350px;
+		display: inline-block;
+		padding: 0.4em 0.6em;
+		transition: 0.3s border-left ease;
+	}
+
+	input[type="text"]:focus,
+	input[type="email"]:focus {
+		outline: none;
+		border-left: 10px solid $yellow;
+	}
+
+	.cs-button {
+		margin-top: 20px;
+	}
 }
