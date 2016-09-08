@@ -10,6 +10,7 @@ $(function() {
 		$nextButton: $(".slide-nav .next"),
 		$slides: $(".slider-wrapper .panel"),
 		currentSlide: 0,
+		$subForm: $("#sub-form"),
 
 		init: function() {
 			this.totalSlides = this.$slides.length;
@@ -65,6 +66,64 @@ $(function() {
 				if($("#" + id).length !== 0)
 					self.scrollToId(id);
 			});
+
+			this.registerFormChangeHandlers();
+
+			this.$subForm.on("submit", function(e) {
+				var self = this;
+			});
+
+		},
+
+		validateName: function(name) {
+			return /^[a-zA-Z]+$/.test(name);
+		},
+
+		validateEmail: function(email) {
+			return /^[a-z0-9]+[_a-z0-9\.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.test(email);
+		},
+
+		registerFormChangeHandlers: function() {
+			var self = this;
+			var $errorElement = $('<span class="fa fa-exclamation-circle hide"></span>');
+			var $fname = this.$subForm.find('[name="fname"]'),
+					$lname = this.$subForm.find('[name="lname"]'),
+					$email = this.$subForm.find('[name="email"]');
+
+			$fname.after($errorElement.clone());
+			$lname.after($errorElement.clone());
+			$email.after($errorElement.clone());
+
+			$fname.keydown(function() {
+				var inp = $(this);
+				if(!self.validateName(inp.val())) {
+					console.log("Invalid name");
+					inp.next('.fa').removeClass("hide");
+				} else {
+					inp.next('.fa').addClass("hide");
+				}
+			});
+
+			$lname.keydown(function() {
+				var inp = $(this);
+				if(!self.validateName($(this).val())) {
+					console.log("Invalid name");
+					inp.next('.fa').removeClass("hide");
+				} else {
+					inp.next('.fa').addClass("hide");
+				}
+			});
+
+			$email.keydown(function() {
+				var inp = $(this);
+				if(!self.validateEmail($(this).val())) {
+					console.log("Invalid email");
+					inp.next('.fa').removeClass("hide");
+				} else {
+					inp.next('.fa').addClass("hide");
+				}
+			});
+
 
 		},
 
