@@ -70,9 +70,74 @@ $(function() {
 			this.registerFormChangeHandlers();
 
 			this.$subForm.on("submit", function(e) {
-				var self = this;
+				e.preventDefault();
+
+				$btn = self.$subForm.find(".cs-button");
+
+				if(self.validateForm()) {
+					self.$subForm.find("input, button").each(function() {
+						$(this).prop("disabled", true);
+					});
+					$btn.html('<span class="fa fa-spinner"></span>');
+
+					$.ajax({
+						url: self.$subForm.attr("action"),
+						method: 'POST',
+						dataType: 'json',
+						data: {
+							'fname': self.$subForm.get(0).fname.value,
+							'lname': self.$subForm.get(0).lname.value,
+							'email': self.$subForm.get(0).email.value
+						}
+						})
+						.done(function(data) {
+							if(data.status === "subscribed") {
+								$btn.find(".fa").hide(function() {
+									$this.remove();
+									$('<span class="fa fa-check"></span>')
+										.hide()
+										.appendTo($btn)
+										.fadeIn();
+								});
+							}
+						})
+						.fail(function() {
+							console.log("Trouble connecting.");
+						});
+				}
 			});
 
+		},
+
+		validateForm: function() {
+			var $fname = this.$subForm.find('[name="fname"]'),
+					$lname = this.$subForm.find('[name="lname"]'),
+					$email = this.$subForm.find('[name="email"]');
+
+			var isValid = true;
+
+			if(!this.validateName($fname.val())) {
+				$fname.next('.fa').removeClass("hide");
+				isValid = false;
+			} else {
+				$fname.next('.fa').addClass("hide");
+			}
+
+			if(!this.validateName($lname.val())) {
+				$lname.next('.fa').removeClass("hide");
+				isValid = false;
+			} else {
+				$lname.next('.fa').addClass("hide");
+			}
+
+			if(!this.validateEmail($email.val())) {
+				$email.next('.fa').removeClass("hide");
+				isValid = false;
+			} else {
+				$email.next('.fa').addClass("hide");
+			}
+
+			return isValid;
 		},
 
 		validateName: function(name) {
@@ -94,30 +159,27 @@ $(function() {
 			$lname.after($errorElement.clone());
 			$email.after($errorElement.clone());
 
-			$fname.keydown(function() {
+			$fname.change(function() {
 				var inp = $(this);
 				if(!self.validateName(inp.val())) {
-					console.log("Invalid name");
 					inp.next('.fa').removeClass("hide");
 				} else {
 					inp.next('.fa').addClass("hide");
 				}
 			});
 
-			$lname.keydown(function() {
+			$lname.change(function() {
 				var inp = $(this);
 				if(!self.validateName($(this).val())) {
-					console.log("Invalid name");
 					inp.next('.fa').removeClass("hide");
 				} else {
 					inp.next('.fa').addClass("hide");
 				}
 			});
 
-			$email.keydown(function() {
+			$email.change(function() {
 				var inp = $(this);
 				if(!self.validateEmail($(this).val())) {
-					console.log("Invalid email");
 					inp.next('.fa').removeClass("hide");
 				} else {
 					inp.next('.fa').addClass("hide");
